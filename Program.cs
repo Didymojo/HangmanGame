@@ -12,7 +12,7 @@
             wordList.Add("provincial");
             wordList.Add("crown");
             wordList.Add("freighter");
-            wordList.Add("sock");
+  
 
             Random rng = new Random();
             int index = rng.Next(wordList.Count);
