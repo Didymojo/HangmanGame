@@ -4,70 +4,60 @@
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Hangman");
+            Console.WriteLine("------------------");
 
-            List<string> wordList = new List<string>();
+            Random rnd = new Random();
 
-            wordList.Add("chemistry");
+            List<String> wordList = new List<String>();
+            wordList.Add("chemistry"); // adding elements using add() method
             wordList.Add("strike");
+            wordList.Add("freighter");
             wordList.Add("provincial");
             wordList.Add("crown");
-            wordList.Add("freighter");
-  
 
-            Random rng = new Random();
-            int index = rng.Next(wordList.Count);
+            int index = rnd.Next(wordList.Count);
 
-            Console.WriteLine(wordList[index]);  //prints the random word
+            string randomWord = wordList[index];
+            Console.WriteLine($"the random word is: {rnd}");
 
             Console.WriteLine("type your letter guess:");
             string playerGuess = Console.ReadLine();
             Console.WriteLine($"The user chose: {playerGuess}");
 
-            //next part is to find or write a function that helps find out if character is part of a string, 
+            //if (rnd.Contains(playerGuess) == true)  // String.Contains() method returns a value indicating whether a specified substring occurs within this string
+            //{
+            //    Console.WriteLine("letter found");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("letter not found");
+            //}
 
-            string s = "coding is hard";
 
+            //    Console.ReadKey();//not sure about how am supposed to use this - it returns the player guess
 
-            if (s.Contains(playerGuess) == true) //contains wont work for the integer, if the random word is chosen using the integer
+            int counter = 0;
+            int rightLetters = 0;
+
+            foreach (char c in randomWord)
             {
-                Console.WriteLine("letter found");
+                if (playerGuess.Contains(c))
+                {
+                    Console.Write(c + " ");
+                    rightLetters += 1;
+                }
+                else
+                {
+                    Console.Write("- ");
+                }
+                counter += 1;
+
+
+
             }
-            else
-            {
-                Console.WriteLine("letter NOT found");
-            }
-
-
-            //Console.WriteLine(randomWord);
-
-
-
-            // Console.WriteLine(wordSelection[0] + wordSelection[1]);
-
-
-            //int randIndex = rnd.Next(wordList.Count);
-            //int random = wordList[randIndex];
-
-            //get the person to enter a word, is that word in the array, if not then print one of those lines:
-            //Console.WriteLine("Type your word guess:");
-            //string playerGuess = Console.ReadLine();
-
-
-
-
-            //  console.writeline("  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========\n" +
-
-            //"  +---+\n  |   |\n  o   |\n      |\n      |\n      |\n=========\n" +
-
-            //"  +---+\n  |   |\n  o   |\n  |   |\n      |\n      |\n=========\n" +
-
-            //"  +---+\n  |   |\n  o   |\n /|   |\n      |\n      |\n=========\n" +
-
-            //"  +---+\n  |   |\n  o   |\n /|\\  |\n      |\n      |\n=========\n" +
-
-            //"  +---+\n  |   |\n  o   |\n /|\\  |\n /    |\n      |\n=========\n" +
-
-            //"  +---+\n  |   |\n  o   |\n /|\\  |\n / \\  |\n      |\n=========\n)");
         }
     }
 }
+
+//    Console.ReadKey();//not sure about how am supposed to use this - it returns the player guess
